@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.maple.mapper.BookInfoMapper">
+    <resultMap id="BaseResultMap" type="com.maple.pojo.BookInfo">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="type" jdbcType="VARCHAR" property="type"/>
+        <result column="price" jdbcType="DECIMAL" property="price"/>
+        <result column="press" jdbcType="VARCHAR" property="press"/>
+        <result column="author" jdbcType="VARCHAR" property="author"/>
+        <result column="public_date" jdbcType="VARCHAR" property="publicdate"/>
+        <result column="book_count" jdbcType="INTEGER" property="bookcount"/>
+        <result column="image" jdbcType="VARCHAR" property="image"/>
+    </resultMap>
+    <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.maple.pojo.BookInfo">
+        <result column="info" jdbcType="LONGVARCHAR" property="info"/>
+    </resultMap>
+
+    <select id="queryBookById" resultMap="BaseResultMap">
+  	select * from book_info where id = #{id,jdbcType=INTEGER}
+  </select>
+
+    <select id="selectAllBooks" resultType="com.maple.pojo.BookInfo">
+  	select * from book_info
+  </select>
+
+    <select id="queryBookByName" resultType="com.maple.pojo.BookInfo">
+  	select * from book_info where name = #{name,jdbcType=VARCHAR}
+  </select>
+
+    <insert id="addBook" parameterType="com.maple.pojo.BookInfo">
+        insert into book_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="type != null">
+                type,
+            </if>
+            <if test="price != null">
+                price,
+            </if>
+            <if test="press != null">
+                press,
+            </if>
+            <if test="author != null">
+                author,
+            </if>
+            <if test="publicdate != null">
+                public_date,
+            </if>
+            <if test="bookcount != null">
+                book_count,
+            </if>
+            <if test="image != null">
+                image,
+            </if>
+            <if test="info != null">
+                info,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="price != null">
+                #{price,jdbcType=DECIMAL},
+            </if>
+            <if test="press != null">
+                #{press,jdbcType=VARCHAR},
+            </if>
+            <if test="author != null">
+                #{author,jdbcType=VARCHAR},
+            </if>
+            <if test="publicdate != null">
+                #{publicdate,jdbcType=VARCHAR},
+            </if>
+            <if test="bookcount != null">
+                #{bookcount,jdbcType=INTEGER},
+            </if>
+            <if test="image != null">
+                #{image,jdbcType=VARCHAR},
+            </if>
+            <if test="info != null">
+                #{info,jdbcType=LONGVARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <delete id="delBook" parameterType="java.lang.Integer">
+    delete from book_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+
+    <delete id="delMultipleBook" parameterType="java.util.List">
+    delete from book_info
+    where id in <foreach collection="list" item="id"  index="index" open="(" close=")" separator=",">
+        #{id,jdbcType=INTEGER}
+    </foreach>
+  </delete>
+
+<!--
+    <insert id="addBook" parameterType="com.maple.pojo.BookInfo">
+    insert into book_info (id, name, type,
+      price, press, author,
+      publicDate, bookCount, image,
+      info)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR},
+      #{price,jdbcType=DECIMAL}, #{press,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR},
+      #{publicdate,jdbcType=VARCHAR}, #{bookcount,jdbcType=INTEGER}, #{image,jdbcType=VARCHAR},
+      #{info,jdbcType=LONGVARCHAR})
+  </insert>
+ -->
+
+    <update id="updateById" parameterType="com.maple.pojo.BookInfo">
+        update book_info
+        set name = #{name,jdbcType=VARCHAR},
+        type = #{type,jdbcType=VARCHAR},
+        price = #{price,jdbcType=DECIMAL},
+        press = #{press,jdbcType=VARCHAR},
+        author = #{author,jdbcType=VARCHAR},
+        public_date = #{publicdate,jdbcType=VARCHAR},
+        book_count = #{bookcount,jdbcType=INTEGER},
+        image = #{image,jdbcType=VARCHAR},
+        info = #{info,jdbcType=LONGVARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+</mapper>

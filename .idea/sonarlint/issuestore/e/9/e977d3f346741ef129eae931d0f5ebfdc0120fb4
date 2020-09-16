@@ -1,0 +1,14 @@
+
+
+java:S1130X"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(ïÉÖ¬ıÿÿÿÿ8™ÇÃò.
+|
+java:S1149I"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(í…Ò‰8÷…î¤œ.
+E	java:S108Y")Either remove or fill this block of code.(èá»¥8™ÇÃò.
+C
+java:S1659K"!Declare "len" on a separate line.(¦Â¶İüÿÿÿÿ8÷…î¤œ.
+[
+java:S3752b">Add a "method" parameter to this "@RequestMapping" annotation.(ĞÉ³º8™ÇÃò.
+W
+java:S24419":Make "User" serializable or don't store it in the session.(úÆè“8÷…î¤œ.
+;
+java:S2119E"Save and re-use this "Random".(¡Å”¦8÷…î¤œ.

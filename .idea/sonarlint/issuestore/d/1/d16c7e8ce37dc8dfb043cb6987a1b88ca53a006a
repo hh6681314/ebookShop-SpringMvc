@@ -1,0 +1,17 @@
+
+O
+java:S1128
+"4Remove this unused import 'java.time.LocalDateTime'.(æÃ§ƒüÿÿÿÿ
+U	java:S106+"9Replace this use of System.out or System.err by a logger.(äüÃâ8Õ¹Ç§§.
+m
+java:S2441N"RMake "ArrayList" and its parameters serializable or don't store it in the session.(’ôÅñüÿÿÿÿ
+p
+java:S1450"ZRemove the "cartService" field and declare it as a local variable in the relevant methods.(ÓïøÙ
+m
+java:S2441d"RMake "ArrayList" and its parameters serializable or don't store it in the session.(’ôÅñüÿÿÿÿ
+]	java:S125^"<This block of commented-out lines of code should be removed.(È®–Ïÿÿÿÿÿ8«İÚ¢œ.
+h
+java:S2441p"MMake "List" and its parameters serializable or don't store it in the session.(’ôÅñüÿÿÿÿ
+Z	java:S106,"9Replace this use of System.out or System.err by a logger.(í Âõøÿÿÿÿ8Õ¹Ç§§.
+E
+java:S1068"/Remove this unused "cartService" private field.(ÓïøÙ

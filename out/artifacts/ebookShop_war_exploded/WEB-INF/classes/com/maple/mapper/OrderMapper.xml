@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.maple.mapper.OrderMapper">
+    <resultMap type="com.maple.pojo.OrderInfo" id="OrderMap">
+        <result property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="status" column="status"/>
+        <result property="orderTime" column="order_time"/>
+        <association property="user" javaType="com.maple.pojo.User" column="user_id"
+                     select="com.maple.mapper.UserMapper.selectUserById">
+            <result property="id" column="id"/>
+            <result property="name" column="name"/>
+            <result property="sex" column="sex"/>
+            <result property="password" column="password"/>
+            <result property="address" column="address"/>
+            <result property="email" column="email"/>
+            <result property="question" column="question"/>
+            <result property="answer" column="answer"/>
+            <result property="createDate" column="createDate"/>
+            <result property="favorate" column="favorite"/>
+        </association>
+        <collection property="orderDetailArrayList" column="id" ofType="com.maple.pojo.OrderDetail"
+                    select="com.maple.mapper.OrderDetailMapper.selectOrderDetailByOid">
+            <result property="oId" column="o_id"/>
+            <result property="bId" column="o_id"/>
+            <result property="num" column="num"/>
+        </collection>
+    </resultMap>
+
+
+    <insert id="addOrder" parameterType="com.maple.pojo.OrderInfo" useGeneratedKeys="true" keyProperty="id">
+        insert into order_info(user_id, status, order_time)
+        values (#{userId}, #{status}, #{orderTime});
+    </insert>
+
+    <update id="orderShip">
+        update order_info
+        set order_info.status = '已发货'
+        where id = #{id};
+    </update>
+
+    <update id="orderStock" parameterType="com.maple.pojo.BookInfo">
+        update book_info
+        set book_count=
+        <foreach collection="list" item="item" index="index"
+                 separator=" " open="case ID" close="end">
+            when #{item.id} then book_count - #{item.bookcount}
+        </foreach>
+        where id in
+        <foreach collection="list" index="index" item="item"
+                 separator="," open="(" close=")">
+            #{item.id}
+        </foreach>
+    </update>
+
+    <update id="orderConfirm" parameterType="int">
+        update order_info
+        set order_info.status = '交易成功'
+        where id = #{id}
+          and user_id = #{userId}
+    </update>
+
+
+    <select id="selectByUserId" resultMap="OrderMap">
+        select *
+        from order_info
+        where user_id = #{userId};
+    </select>
+
+    <select id="selectAllOrder" resultMap="OrderMap">
+        select *
+        from order_info
+    </select>
+
+    <select id="selectOrderById" resultMap="OrderMap">
+        select *
+        from order_info
+        where id = #{id};
+    </select>
+
+
+</mapper>

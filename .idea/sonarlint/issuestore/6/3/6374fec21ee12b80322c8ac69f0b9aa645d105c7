@@ -1,0 +1,7 @@
+
+j	java:S100("NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àˆ§Í8ª·€€ž.
+j	java:S100$"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(îÀ’ú8ª·€€ž.
+m	java:S117("QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àˆ§Í8ª·€€ž.
+p	java:S116
+"ORename this field "b_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(š÷ýØúÿÿÿÿ8ª·€€ž.
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’ð¾Ð8ª·€€ž.

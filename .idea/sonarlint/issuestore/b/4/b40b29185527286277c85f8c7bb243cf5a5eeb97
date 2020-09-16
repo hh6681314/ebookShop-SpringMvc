@@ -1,0 +1,5 @@
+
+
+java:S1319"|The type of the "bookInfoArrayList" object should be an interface such as "List" rather than the implementation "ArrayList".(æÙ±êüÿÿÿÿ8§°ìò.
+
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(›ô÷Ã8§°ìò.

@@ -1,0 +1,47 @@
+#contact h1{
+	margin-top:50px;
+	font-size:2.8em;
+}
+#contact p{
+	font-size:1.4em;
+	line-height:3.2em;
+}
+#contact h2{
+	margin-top:10px;
+	color: #E86600;
+	font-size:1.6em;
+}
+
+fieldset{
+	border: 1px solid #AAA;
+	margin: 1em 0;
+	font-size:1.6em;
+}
+legend{
+	color: #AAA;
+	font-weight:bold;
+}
+fieldset div{
+	margin-bottom: 0.5em;
+}
+div label{
+	display: block;
+	width: 200px;
+	float: left;
+	text-align: right;
+	padding-right: 1em;
+	padding-left:140px;
+	font-weight:bold;
+}
+#contact textarea,#contact option{
+	color:#AAA;
+}
+
+button[type=submit] {
+	background:url(../images/submit.gif) no-repeat;
+	width:123px;
+	height:47px;
+	border:none;
+	cursor:pointer;
+	margin-left:360px;
+}
